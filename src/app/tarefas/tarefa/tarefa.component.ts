@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerService, NgxSpinnerModule } from 'ngx-spinner';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { Tarefa } from '../models/tarefa';
+import { takeUntil } from 'rxjs/operators';
 import { TarefaService } from '../services/tarefa.service';
 
 @Component({
   selector: 'app-tarefa',
   templateUrl: './tarefa.component.html'
 })
-export class TarefaComponent implements OnInit {
+
+export class TarefaComponent implements OnInit, OnDestroy {
 
   public tarefaForm: FormGroup | any;
   public titulo = 'Tarefas';
@@ -27,6 +29,7 @@ export class TarefaComponent implements OnInit {
   }
 
   private unsubscriber = new Subject();
+
   public tarefas: Tarefa[] = [];
   public tarefa: Tarefa | any;
   public txtDeleteTarefa: string = '';
@@ -41,12 +44,18 @@ export class TarefaComponent implements OnInit {
   constructor(private _tarefaService: TarefaService,
               private route: ActivatedRoute,
               private fb: FormBuilder,
-              private toastr: ToastrService) { 
+              private toastr: ToastrService,
+              private spinner: NgxSpinnerService) { 
       this.criarForm();
   }
 
   ngOnInit(): void {
     this.carregarTarefas();
+  }
+
+  ngOnDestroy(): void {
+      this.unsubscriber.next();
+      this.unsubscriber.complete();
   }
 
   criarForm() {
@@ -60,6 +69,54 @@ export class TarefaComponent implements OnInit {
     })
   }
 
+  salvarTarefa() {
+    if(this.tarefaForm.valid) {
+      if(this.tarefaSave === 'post') {
+        this.tarefa = { ...this.tarefaForm.value};
+      } else {
+        this.tarefa = { id: this.tarefaSelecionada.id, ...this.tarefaForm.value};
+      }
+
+      this._tarefaService[this.tarefaSave](this.tarefa)
+        .pipe(takeUntil(this.unsubscriber))
+        .subscribe(
+          () => {
+            this.carregarTarefas();
+            this.toastr.success('Tarefa adicionada com sucesso!');
+          }, (error: any) => {
+            this.toastr.error('Erro: Tarefa não foi salva.');
+            console.log(error);
+          }
+        );
+    }
+  }
+
+  deletarTarefa(id: number){
+    this._tarefaService.deletarTarefa(id).subscribe(
+      (tarefa: any) => {
+        console.log(tarefa);
+        this.toastr.success('Tarefa excluída com sucesso!');
+        this.carregarTarefas;
+      }
+    )
+  }
+
+  onChange(event) {
+    const type: string = event.target.value;
+    if(type !== "Ordenação") {
+      this._ORDERBY[type]();
+      this.orderby = type;
+    }
+  }
+
+  onChangeRadio(event) {
+    const radio = event.target.id
+    radio === "asc" ? this.isAsc = true : this.isAsc = false;
+    console.log(this.orderby, this.isAsc);
+    if (this.orderby !== "")
+      this._ORDERBY[this.orderby]();
+  }
+
   carregarTarefas() {
     this._tarefaService.getTarefas()
       .subscribe(
@@ -70,5 +127,14 @@ export class TarefaComponent implements OnInit {
     );
   }
 
+  tarefaSelecionar(tarefa: Tarefa) {
+    this.tarefaSave = 'put';
+    this.tarefaSelecionada = tarefa;
+    this.tarefaForm.patchValue(tarefa);
+  }
+
+  limpar() {
+    this.tarefaSelecionada = null;
+  }
 
 }
