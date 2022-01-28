@@ -32,3 +32,13 @@ Primeiro instalei o pacote json.server utilizando o comando npm i json-server.
 Criei o arquivo tarefas.db.json no diretório principal do projeto, com uma lista de tarefas.
 Para executar utilizei o comando json-server --watch tarefas.db.json na pasta do projeto. (E pronto, só usar o serviço)
 
+
+------------------- Projeto REToDoList (Desafio - Revisão) - Coponente de tarefas ---------------------
+
+Criei um novo componente
+ng g c tarefas/lista-tarefa
+Criei uma pasta para os modelos e uma para os serviços.
+Na pasta dos modelos criei a classe tarefa com as propriedades (id, titulo, descrição, finalizado... também no construtor).
+Criei o serviço que irá ligar o backend a view. Declarei a propriedade url que será a url fornecida pelo json-server, e criei o método getTarefas que usará o httpClient (anteriormente importado no módulo). Usei o Observable dos recursos RXJS para retornar de forma assíncrona.
+No componente de tarefa fiz o acesso ao serviço para trazer a lista. E no método NgOnInit fiz a carga das tarefas. No componente html criei uma tabela para exibição dos dados.
+No app routing adicionei a rota todo que leva ao componente de lista-tarefas (Anteriormente adicionada ao menu component html). E no providers do modulo principal importei o TarefaService.

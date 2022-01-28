@@ -4,33 +4,33 @@
         "id": 1,
         "titulo": "Teste tarefa2",
         "descricao": "Descrição da tarefa2",
-        "isDone": true,
+        "finalizado": true,
         "categoria": "Fácil",
-        "dataConclusão": "22-04-2021"
+        "dataConclusao": "22-04-2021"
       },
       {
         "id": 2,
         "titulo": "Teste tarefa",
         "descricao": "Descrição da tarefa",
-        "isDone": false,
+        "finalizado": false,
         "categoria": "Difícil",
-        "dataConclusão": "22-04-2021"
+        "dataConclusao": "22-04-2021"
       },
       {
         "id": 3,
         "titulo": "Teste tarefa1",
         "descricao": "Descrição da tarefa1",
-        "isDone": true,
+        "finalizado": true,
         "categoria": "Difícil",
-        "dataConclusão": "22-04-2021"
+        "dataConclusao": "22-04-2021"
       },
       {
         "id": 4,
         "titulo": "Correr",
         "descricao": "Levar o cachorro para passear ao final da tarde.",
-        "isDone": true,
+        "finalizado": true,
         "categoria": "Fácil",
-        "dataConclusão": "22-10-2021"
+        "dataConclusao": "22-04-2021"
       }
   
     ]
