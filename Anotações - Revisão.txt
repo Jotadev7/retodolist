@@ -1,0 +1,5 @@
+------------------- Projeto REToDoList (Desafio - Revisão) - Criando o projeto ---------------------
+
+Criando o novo projeto
+ng new retodolist
+Esse projeto irá conter uma landing page, desenvolvida para revisão dos conteúdos vistos anteriormente de HTML, CSS e JS; e também uma (re)to-do list para avaliação.
