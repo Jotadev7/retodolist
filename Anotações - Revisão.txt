@@ -42,3 +42,13 @@ Na pasta dos modelos criei a classe tarefa com as propriedades (id, titulo, desc
 Criei o serviço que irá ligar o backend a view. Declarei a propriedade url que será a url fornecida pelo json-server, e criei o método getTarefas que usará o httpClient (anteriormente importado no módulo). Usei o Observable dos recursos RXJS para retornar de forma assíncrona.
 No componente de tarefa fiz o acesso ao serviço para trazer a lista. E no método NgOnInit fiz a carga das tarefas. No componente html criei uma tabela para exibição dos dados.
 No app routing adicionei a rota todo que leva ao componente de lista-tarefas (Anteriormente adicionada ao menu component html). E no providers do modulo principal importei o TarefaService.
+
+------------------- Projeto REToDoList (Desafio - Revisão) - Notificações com toastr / Spinner no carregamento de dados ---------------------
+
+Baixei o ngx-toastr, e também pacote do angular animations
+npm install ngx-toastr --save
+npm install @angular/animations --save
+Baixei o componente spinner
+npm install ngx-spinner --save
+Fiz a importação do toastr, angular animations e spinner no módulo principal e injeções no construtor do componente de tarefas.
+Adicionados também métodos http no serviço (put, post, delete, getById).

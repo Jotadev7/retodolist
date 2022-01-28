@@ -13,4 +13,20 @@ export class TarefaService {
     getTarefas(): Observable<Tarefa[]>{
         return this._httpClient.get<Tarefa[]>(this.url);
     }
+
+    getById(id: number): Observable<Tarefa> {
+        return this._httpClient.get<Tarefa>(`${this.url}/${id}`);
+    }
+
+    adicionarTarefa(tarefa: Tarefa) {
+        return this._httpClient.post(this.url, tarefa);
+    }
+
+    alterarTarefa(tarefa: Tarefa) {
+        return this._httpClient.put(`${this.url}/${tarefa.id}`, tarefa);
+    }
+
+    deletarTarefa(id: number) {
+        return this._httpClient.delete(`${this.url}/${id}`);
+    }
 }

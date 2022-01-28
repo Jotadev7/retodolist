@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +22,8 @@ import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
     NavegacaoModule,
     NgbModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule
   ],
   providers: [
     TarefaService
