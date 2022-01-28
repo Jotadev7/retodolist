@@ -13,3 +13,11 @@ No app routing module criei o caminho para a home, informando o redirectTo na ro
 Apaguei a estrutura anterior do app.component.html e informei o menu, a estrutura de rotas, e o rodapé.
 No styles.css criei estilos para melhorar a visualização de navegação.
 
+------------------- Projeto REToDoList (Desafio - Revisão) - Bootstrap (Config) ---------------------
+
+Instalei o ng-bootstrap.
+npm install --save @ng-bootstrap/ng-bootstrap
+Após a instalação importei o módulo do bootstrap no módulo principal e no módulo de navegação.
+No menu html criei uma diretiva [ngbCollapse] e passamos como parâmetro um boolean isCollapsed (Criado no menu component). E no botão inseri um evento (click) para alterar o valor desse boolean ao ser clicado.
+No menu component criei o método isCollapsed boolean, e no construtor informei que esse valor inicia sempre como verdadeiro.
+

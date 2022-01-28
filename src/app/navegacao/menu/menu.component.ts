@@ -5,20 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './menu.component.html'
 })
 export class MenuComponent {
-  nav: Nav[] = [
-    {
-      link: '/home',
-      name: 'Home'
-    },
-    {
-      link: '/todo',
-      name: 'ToDo'
-    }
-  ]
+  public isCollapsed: boolean;
 
-}
-
-interface Nav {
-  link: string;
-  name: string;
+  constructor() {
+    this.isCollapsed = true;
+  }
 }
