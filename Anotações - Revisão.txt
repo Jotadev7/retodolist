@@ -3,3 +3,13 @@
 Criando o novo projeto
 ng new retodolist
 Esse projeto irá conter uma landing page, desenvolvida para revisão dos conteúdos vistos anteriormente de HTML, CSS e JS; e também uma (re)to-do list para avaliação.
+
+------------------- Projeto REToDoList (Desafio - Revisão) - Criando componentes e módulo de navegação  ---------------------
+
+Criei a pasta navegação e dentro dela os componentes de menu, footer, home e notfound. A navegação é um módulo a parte, então criei o arquivo navegacao.module.ts.
+No arquivo navegacao module criei a estrutura básica e importei também o RouterModule. E no módulo principal importei o módulo de navegação.
+Alterei o conteúdo do index.html (foi importado o bootstrap e o font-awesome).
+No app routing module criei o caminho para a home, informando o redirectTo na rota home para deixar como padrão e direcionar caso o usuário não informe nada.
+Apaguei a estrutura anterior do app.component.html e informei o menu, a estrutura de rotas, e o rodapé.
+No styles.css criei estilos para melhorar a visualização de navegação.
+
