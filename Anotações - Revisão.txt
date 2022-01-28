@@ -26,3 +26,9 @@ No menu component criei o método isCollapsed boolean, e no construtor informei 
 Iniciei o desenvolvimento da landing page no componente home, apenas para fins educacionais e revisionais do conteúdo de html e css.
 Landing page do Balle Bot - um robô que modera comunidades no Discord. Desenvolvido seguindo o design do Figma: https://www.figma.com/file/myqP66iQwzjwjrIAJyyrip/BalleBot?node-id=0%3A1. Utilizando conceitos de flexbox, estilização em CSS e HTML para relembrar conceitos estudados anteriormente.
 
+------------------- Projeto REToDoList (Desafio - Revisão) - Fake Back-End ---------------------
+
+Primeiro instalei o pacote json.server utilizando o comando npm i json-server.
+Criei o arquivo tarefas.db.json no diretório principal do projeto, com uma lista de tarefas.
+Para executar utilizei o comando json-server --watch tarefas.db.json na pasta do projeto. (E pronto, só usar o serviço)
+
