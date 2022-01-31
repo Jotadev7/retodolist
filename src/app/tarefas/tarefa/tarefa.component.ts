@@ -76,18 +76,6 @@ export class TarefaComponent implements OnInit, OnDestroy {
       } else {
         this.tarefa = { id: this.tarefaSelecionada.id, ...this.tarefaForm.value};
       }
-
-      this._tarefaService[this.tarefaSave](this.tarefa)
-        .pipe(takeUntil(this.unsubscriber))
-        .subscribe(
-          () => {
-            this.carregarTarefas();
-            this.toastr.success('Tarefa adicionada com sucesso!');
-          }, (error: any) => {
-            this.toastr.error('Erro: Tarefa não foi salva.');
-            console.log(error);
-          }
-        );
     }
   }
 
@@ -99,22 +87,6 @@ export class TarefaComponent implements OnInit, OnDestroy {
         this.carregarTarefas;
       }
     )
-  }
-
-  onChange(event) {
-    const type: string = event.target.value;
-    if(type !== "Ordenação") {
-      this._ORDERBY[type]();
-      this.orderby = type;
-    }
-  }
-
-  onChangeRadio(event) {
-    const radio = event.target.id
-    radio === "asc" ? this.isAsc = true : this.isAsc = false;
-    console.log(this.orderby, this.isAsc);
-    if (this.orderby !== "")
-      this._ORDERBY[this.orderby]();
   }
 
   carregarTarefas() {
