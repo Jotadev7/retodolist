@@ -1,23 +1,87 @@
 <br><br><br>
 
-<table class="table table-hover table-striped">
-    <thead>
+<body>
+  <header class="cabecalho">
+    <span>To-Do List - A melhor maneira de fazer acontecer!</span>
+    <img class="cabecalho-imagem" src="../../../assets/todo.png">
+  </header>
+  <div class="row">
+
+    <div class="col-sm-6">
+      <form>
+        <div class="form-group">
+          <label>Título</label>
+          <input type="text" formControlName="titulo" class="form-control" placeholder="Informe o título">
+        </div>
+
+        <div class="form-group">
+          <label>Descrição</label>
+          <input type="text" formControlName="descricao" class="form-control" placeholder="Informe a descrição">
+        </div>
+
+        <div class="form-group">
+          <label>Prazo</label>
+          <input type="datetime-local" formControlName="prazo" class="form-control">
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-sm-6">
+      <form>
+        <label>Categoria:</label><br>
+        <select class="form-select" aria-label="Categoria" formControlName="categoria">
+          <option selected>Selecione a categoria</option>
+          <option value="Facil">Fácil</option>
+          <option value="Dificil">Difícil</option>
+          <option value="Urgente">Urgente</option>
+          <option value="Prioritaria">Prioritária</option>
+        </select><br><br>
+
+        <label>Tarefa concluída?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" formControlName="finalizado">
+          <label class="form-check-label" for="flexCheckChecked">Concluída</label>
+        </div>
+
+        <div class="form-group">
+          <hr>
+          <button type="reset" class="btn btn-primary">Limpar</button> &nbsp;&nbsp;
+          <button class="btn btn-success" style="">Gravar</button>
+        </div>
+      </form>
+    </div>
+
+    <table class="table table-hover table-striped">
+      <thead>
+        <td></td>
         <td>#</td>
         <td>Título</td>
         <td>Descrição</td>
         <td>Finalizado?</td>
         <td>Categoria</td>
-        <td>Data de conclusão:</td>
-    </thead>
+        <td>Data de conclusão</td>
+        <td></td>
+      </thead>
 
-    <tbody>
+      <tbody>
         <tr *ngFor="let tarefa of tarefas">
-            <td>{{tarefa.id}}</td>
-            <td>{{tarefa.titulo}}</td>
-            <td>{{tarefa.descricao}}</td>
-            <td>{{tarefa.finalizado}}</td>
-            <td>{{tarefa.categoria}}</td>
-            <td>{{tarefa.dataConclusao}}</td>
+          <td>
+            <button class="text-white btn btn-sm btn-secondary">Selecionar</button>
+          </td>
+          <td>{{tarefa.id}}</td>
+          <td>{{tarefa.titulo}}</td>
+          <td>{{tarefa.descricao}}</td>
+          <td>{{tarefa.finalizado}}</td>
+          <td>{{tarefa.categoria}}</td>
+          <td>{{tarefa.dataConclusao}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-danger">Excluir</button>
+            </div>
+          </td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
+</body>

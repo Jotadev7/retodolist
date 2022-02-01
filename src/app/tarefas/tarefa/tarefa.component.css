@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Sarala:wght@400;700&display=swap');
+
+body {
+    font-size: 100%;
+    background: linear-gradient(68.15deg, #00000000 16.62%, #00000027 85.61%);
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.cabecalho-imagem {
+    height: 72px;
+}
