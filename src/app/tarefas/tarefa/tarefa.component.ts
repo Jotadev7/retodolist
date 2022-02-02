@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
@@ -14,16 +14,17 @@ export class TarefaComponent implements OnInit {
 
   tarefaForm: FormGroup | any;
 
-  constructor(private _tarefaService: TarefaService) {}
+  constructor(private _tarefaService: TarefaService,
+              private fb: FormBuilder) {}
   public tarefas: Tarefa[] = [];
 
   ngOnInit() {
-    this.tarefaForm = new FormGroup({
-      titulo: new FormControl(''),
-      descricao: new FormControl(''),
-      finalizado: new FormControl(Boolean),
-      categoria: new FormControl(''),
-      dataConclusao: new FormControl(Date),
+    this.tarefaForm = this.fb.group({
+      titulo: [''],
+      descricao: [''],
+      finalizado: [Boolean],
+      categoria: [''],
+      dataConclusao: [Date],
     })
 
     this._tarefaService.getTarefas()
