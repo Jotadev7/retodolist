@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
@@ -11,10 +12,20 @@ import { TarefaService } from '../services/tarefa.service';
 
 export class TarefaComponent implements OnInit {
 
+  tarefaForm: FormGroup | any;
+
   constructor(private _tarefaService: TarefaService) {}
   public tarefas: Tarefa[] = [];
 
   ngOnInit() {
+    this.tarefaForm = new FormGroup({
+      titulo: new FormControl(''),
+      descricao: new FormControl(''),
+      finalizado: new FormControl(Boolean),
+      categoria: new FormControl(''),
+      dataConclusao: new FormControl(Date),
+    })
+
     this._tarefaService.getTarefas()
       .subscribe(
         retorno => {
@@ -31,5 +42,10 @@ export class TarefaComponent implements OnInit {
           })
         }
       )
+  }
+
+  adicionarTarefa() {
+    let x = this.tarefaForm.value;
+    console.log(x);
   }
 }

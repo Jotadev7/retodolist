@@ -1,87 +1,90 @@
-<br><br><br>
+<div class="container main-container">
+  <h4>To-Do List - A melhor maneira de fazer acontecer!</h4>
+  <hr>
 
-<body>
-  <header class="cabecalho">
-    <span>To-Do List - A melhor maneira de fazer acontecer!</span>
-    <img class="cabecalho-imagem" src="../../../assets/todo.png">
-  </header>
-  <div class="row">
+  <form novalidate (ngSubmit)="adicionarTarefa()" [formGroup]="tarefaForm">
 
-    <div class="col-sm-6">
-      <form>
-        <div class="form-group">
-          <label>Título</label>
-          <input type="text" formControlName="titulo" class="form-control" placeholder="Informe o título">
+    <div class="form-horizontal">
+
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="titulo">Título</label>
+        <div class="col-md-10">
+          <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo">
         </div>
+      </div>
 
-        <div class="form-group">
-          <label>Descrição</label>
-          <input type="text" formControlName="descricao" class="form-control" placeholder="Informe a descrição">
+      <div class="form-group">
+        <label class="col-md-2 control-label">Descrição</label>
+        <div class="col-md-10">
+          <input class="form-control" id="descricao" type="text" placeholder="Descrição (requerido)"
+            formControlName="descricao">
         </div>
+      </div>
 
-        <div class="form-group">
-          <label>Prazo</label>
-          <input type="datetime-local" formControlName="prazo" class="form-control">
+      <div class="form-group">
+        <label class="col-md-2 control-label">Data de conclusão</label>
+        <div class="col-md-10">
+          <input class="form-control" type="datetime-local" formControlName="dataConclusao">
         </div>
+      </div>
 
-      </form>
-    </div>
+      <div class="form-group">
+        <label class="col-md-2 control-label">Tarefa concluída?</label>
+        <input class="form-check-input" type="checkbox" formControlName="finalizado">
+        <label class="form-check-label" for="flexCheckChecked">Concluída</label>
+      </div>
 
-    <div class="col-sm-6">
-      <form>
-        <label>Categoria:</label><br>
+      <div class="form-group">
+        <label class="col-md-2 control-label">Selecione a categoria</label>
         <select class="form-select" aria-label="Categoria" formControlName="categoria">
-          <option selected>Selecione a categoria</option>
+          <option selected>Selecionar</option>
           <option value="Facil">Fácil</option>
           <option value="Dificil">Difícil</option>
           <option value="Urgente">Urgente</option>
           <option value="Prioritaria">Prioritária</option>
-        </select><br><br>
+        </select>
+      </div>
 
-        <label>Tarefa concluída?</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" formControlName="finalizado">
-          <label class="form-check-label" for="flexCheckChecked">Concluída</label>
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+          <span><button class="btn btn-success" id="Registrar" type="submit">Registrar</button></span>&nbsp;
+          <span><button class="btn btn-primary" id="Limpar" type="reset">Limpar</button></span>
         </div>
+      </div>
 
-        <div class="form-group">
-          <hr>
-          <button type="reset" class="btn btn-primary">Limpar</button> &nbsp;&nbsp;
-          <button class="btn btn-success">Gravar</button>
-        </div>
-      </form>
     </div>
+  </form>
 
-    <table class="table table-hover table-striped">
-      <thead>
-        <td></td>
-        <td>#</td>
-        <td>Título</td>
-        <td>Descrição</td>
-        <td>Finalizado?</td>
-        <td>Categoria</td>
-        <td>Data de conclusão</td>
-        <td></td>
-      </thead>
+  <table class="table table-hover table-striped">
+    <thead>
+      <td></td>
+      <td>#</td>
+      <td>Título</td>
+      <td>Descrição</td>
+      <td>Finalizado?</td>
+      <td>Categoria</td>
+      <td>Data de conclusão</td>
+      <td></td>
+    </thead>
 
-      <tbody>
-        <tr *ngFor="let tarefa of tarefas">
-          <td>
-            <button class="text-white btn btn-sm btn-secondary">Selecionar</button>
-          </td>
-          <td>{{tarefa.id}}</td>
-          <td>{{tarefa.titulo}}</td>
-          <td>{{tarefa.descricao}}</td>
-          <td>{{tarefa.finalizado}}</td>
-          <td>{{tarefa.categoria}}</td>
-          <td>{{tarefa.dataConclusao}}</td>
-          <td>
-            <div class="btn-group">
-              <button class="btn btn-sm btn-danger">Excluir</button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</body>
+    <tbody>
+      <tr *ngFor="let tarefa of tarefas">
+        <td>
+          <button class="text-white btn btn-sm btn-secondary">Selecionar</button>
+        </td>
+        <td>{{tarefa.id}}</td>
+        <td>{{tarefa.titulo}}</td>
+        <td>{{tarefa.descricao}}</td>
+        <td>{{tarefa.finalizado}}</td>
+        <td>{{tarefa.categoria}}</td>
+        <td>{{tarefa.dataConclusao}}</td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-danger">Excluir</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
