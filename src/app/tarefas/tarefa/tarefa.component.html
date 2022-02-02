@@ -2,7 +2,7 @@
   <h4>To-Do List - A melhor maneira de fazer acontecer!</h4>
   <hr>
 
-  <form novalidate (ngSubmit)="adicionarTarefa()" [formGroup]="tarefaForm">
+  <form novalidate (ngSubmit)="adicionaTarefa()" [formGroup]="tarefaForm">
 
     <div class="form-horizontal">
 
@@ -47,7 +47,7 @@
 
       <div class="form-group">
         <div class="col-md-4 col-md-offset-2">
-          <span><button class="btn btn-success" id="Registrar" type="submit">Registrar</button></span>&nbsp;
+          <span><button class="btn btn-success" id="Registrar" type="submit" (click)="guardaTarefa()">Registrar</button></span>&nbsp;
           <span><button class="btn btn-primary" id="Limpar" type="reset">Limpar</button></span>
         </div>
       </div>
