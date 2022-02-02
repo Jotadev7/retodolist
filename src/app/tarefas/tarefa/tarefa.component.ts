@@ -13,6 +13,7 @@ import { TarefaService } from '../services/tarefa.service';
 export class TarefaComponent implements OnInit {
 
   tarefaForm: FormGroup | any;
+  tarefa: Tarefa | any;
 
   constructor(private _tarefaService: TarefaService,
               private fb: FormBuilder) {}
@@ -46,7 +47,7 @@ export class TarefaComponent implements OnInit {
   }
 
   adicionarTarefa() {
-    let x = this.tarefaForm.value;
-    console.log(x);
+    this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
+    console.log(this.tarefa);
   }
 }
