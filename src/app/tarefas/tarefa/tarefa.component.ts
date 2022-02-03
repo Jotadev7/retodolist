@@ -52,16 +52,6 @@ export class TarefaComponent implements OnInit {
       )
   }
 
-  adicionaTarefa() {
-    if(this.tarefaForm.dirty && this.tarefaForm.valid) {
-      this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
-      // console.log(this.tarefa);
-      // this.formResult = JSON.stringify(this.tarefaForm.value);
-    } else {
-      this.formResult = "Não submeteu, formulário inválido.";
-    }
-  }
-
   carregarTarefas() {
     this._tarefaService.getTarefas()
       .pipe(takeUntil(this.unsubscriber))
