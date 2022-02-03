@@ -52,3 +52,8 @@ Baixei o componente spinner
 npm install ngx-spinner --save
 Fiz a importação do toastr, angular animations e spinner no módulo principal e injeções no construtor do componente de tarefas.
 Adicionados também métodos http no serviço (put, post, delete, getById).
+
+------------------- Projeto REToDoList (Desafio - Revisão) - Método POST ---------------------
+
+No serviço criei um método adicionarTarefa() que retorna um método post do http passando o link da api e um objeto do tipo tarefa.
+No componente criei um método para carregar as tarefas, fazendo uso do takeUntil do rxjs/operators e utilizando o subscribe para preencher a lista de tarefas. Criei um método para adicionar tarefas, onde os valores da tarefa serão preenchidos utilizando o Object.assing. e após o preenchimento para salvar na api chamei o método adicionarTarefa() do serviço passando um subscribe do método carregarTarefas() criado anteriormente. No html criei um evento click no botão registrar para chamar o método guardaTarefa() e usei o [disabled] para o botão ficar desativado até que o formulário seja válido.

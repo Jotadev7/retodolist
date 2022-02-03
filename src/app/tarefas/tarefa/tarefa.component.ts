@@ -62,7 +62,6 @@ export class TarefaComponent implements OnInit {
 
   guardaTarefa(){
     this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
-    console.log(this.tarefa);
     this._tarefaService.adicionarTarefa(this.tarefa).subscribe(
       () => {
         this.carregarTarefas();

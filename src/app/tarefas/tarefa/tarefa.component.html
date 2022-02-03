@@ -59,7 +59,7 @@
 
       <div class="form-group">
         <div class="col-md-4 col-md-offset-2">
-          <span><button class="btn btn-success" id="Registrar" type="submit" (click)="guardaTarefa()">Registrar</button></span>&nbsp;
+          <span><button class="btn btn-success" id="Registrar" type="submit" (click)="guardaTarefa()" [disabled]="!tarefaForm.valid">Registrar</button></span>&nbsp;
           <span><button class="btn btn-primary" id="Limpar" type="reset">Limpar</button></span>
         </div>
       </div>
