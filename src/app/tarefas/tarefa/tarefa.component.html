@@ -31,6 +31,9 @@
         <label class="col-md-2 control-label">Data de conclusão</label>
         <div class="col-md-10">
           <input class="form-control" type="datetime-local" formControlName="dataConclusao">
+          <span class="text-danger" *ngIf="tarefaForm.get('dataConclusao').errors && (tarefaForm.get('dataConclusao').dirty || tarefaForm.get('dataConclusao').touched)">
+            <p>Preencha o campo data de conclusão</p>
+          </span>
         </div>
       </div>
 
@@ -49,6 +52,9 @@
           <option value="Urgente">Urgente</option>
           <option value="Prioritaria">Prioritária</option>
         </select>
+        <span class="text-danger" *ngIf="tarefaForm.get('categoria').errors && (tarefaForm.get('categoria').dirty || tarefaForm.get('categoria').touched)">
+          <p>Selecione uma das categorias acima</p>
+        </span>
       </div>
 
       <div class="form-group">

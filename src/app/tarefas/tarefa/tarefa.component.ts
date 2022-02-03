@@ -54,7 +54,7 @@ export class TarefaComponent implements OnInit {
       console.log(this.tarefa);
       this.formResult = JSON.stringify(this.tarefaForm.value);
     } else {
-      this.tarefaForm = "Não submeteu, formulário inválido.";
+      this.formResult = "Não submeteu, formulário inválido.";
     }
   }
 
