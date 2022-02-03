@@ -55,26 +55,6 @@
       "finalizado": true,
       "categoria": "Facil",
       "dataConclusao": "2022-02-10T12:40"
-    },
-    {
-      "id": 8,
-      "titulo": "",
-      "descricao": "",
-      "categoria": ""
-    },
-    {
-      "id": 9,
-      "titulo": "",
-      "descricao": "",
-      "categoria": ""
-    },
-    {
-      "id": 10,
-      "titulo": "123",
-      "descricao": "asd",
-      "finalizado": true,
-      "categoria": "Urgente",
-      "dataConclusao": "2022-02-07T15:13"
     }
   ]
 }

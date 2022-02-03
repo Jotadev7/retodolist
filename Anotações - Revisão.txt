@@ -57,3 +57,8 @@ Adicionados também métodos http no serviço (put, post, delete, getById).
 
 No serviço criei um método adicionarTarefa() que retorna um método post do http passando o link da api e um objeto do tipo tarefa.
 No componente criei um método para carregar as tarefas, fazendo uso do takeUntil do rxjs/operators e utilizando o subscribe para preencher a lista de tarefas. Criei um método para adicionar tarefas, onde os valores da tarefa serão preenchidos utilizando o Object.assing. e após o preenchimento para salvar na api chamei o método adicionarTarefa() do serviço passando um subscribe do método carregarTarefas() criado anteriormente. No html criei um evento click no botão registrar para chamar o método guardaTarefa() e usei o [disabled] para o botão ficar desativado até que o formulário seja válido.
+
+------------------- Projeto REToDoList (Desafio - Revisão) - Método DELETE ---------------------
+
+No serviço criei o método deletarTarefa() que recebe como parâmetro um id, e retorna o método delete do http no link da api, passando o id.
+No componente criei o método removeTarefa() e chamei o método deletarTarefa do serviço passando o id, retornando um subscribe e chamando o método anônimo com retorno carregarTarefas() novamente.

@@ -68,4 +68,13 @@ export class TarefaComponent implements OnInit {
       }
     );
   }
+
+  removeTarefa(id: number) {
+    this._tarefaService.deletarTarefa(id).subscribe(
+      (tarefa: any) => {
+        console.log(tarefa);
+        this.carregarTarefas();
+      }
+    )
+  }
 }

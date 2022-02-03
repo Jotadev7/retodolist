@@ -101,7 +101,7 @@
         <td>{{tarefa.dataConclusao}}</td>
         <td>
           <div class="btn-group">
-            <button class="btn btn-sm btn-danger">Excluir</button>
+            <button class="btn btn-sm btn-danger" (click)="removeTarefa(tarefa.id)">Excluir</button>
           </div>
         </td>
       </tr>
