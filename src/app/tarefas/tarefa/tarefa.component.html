@@ -10,6 +10,9 @@
         <label class="col-md-2 control-label" for="titulo">Título</label>
         <div class="col-md-10">
           <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo">
+          <span class="text-danger" *ngIf="tarefaForm.get('titulo').errors && (tarefaForm.get('titulo').dirty || tarefaForm.get('titulo').touched)">
+            <p>Preencha o campo nome</p>
+        </span>
         </div>
       </div>
 
@@ -18,6 +21,9 @@
         <div class="col-md-10">
           <input class="form-control" id="descricao" type="text" placeholder="Descrição (requerido)"
             formControlName="descricao">
+          <span class="text-danger" *ngIf="tarefaForm.get('descricao').errors && (tarefaForm.get('descricao').dirty || tarefaForm.get('descricao').touched)">
+            <p>Preencha o campo descrição</p>
+          </span>
         </div>
       </div>
 
@@ -51,6 +57,15 @@
           <span><button class="btn btn-primary" id="Limpar" type="reset">Limpar</button></span>
         </div>
       </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+            <p>Formulário válido: {{tarefaForm.valid}}</p>
+            <p>Formulário tocado: {{tarefaForm.touched}}</p>
+            <p>Formulário sujo: {{tarefaForm.dirty}}</p><br>
+            <p>Formulário: {{formResult}}</p>
+        </div>
+    </div>
 
     </div>
   </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
@@ -14,6 +14,7 @@ export class TarefaComponent implements OnInit {
 
   tarefaForm: FormGroup | any;
   tarefa: Tarefa | any;
+  formResult: string = '';
 
   constructor(private _tarefaService: TarefaService,
               private fb: FormBuilder) {}
@@ -21,11 +22,12 @@ export class TarefaComponent implements OnInit {
 
   ngOnInit() {
     this.tarefaForm = this.fb.group({
-      titulo: [''],
-      descricao: [''],
+      id: [0],
+      titulo: ['', Validators.required],
+      descricao: ['', Validators.required],
       finalizado: [Boolean],
-      categoria: [''],
-      dataConclusao: [Date],
+      categoria: ['', Validators.required],
+      dataConclusao: [Date, Validators.required],
     })
 
     this._tarefaService.getTarefas()
@@ -47,8 +49,13 @@ export class TarefaComponent implements OnInit {
   }
 
   adicionaTarefa() {
-    this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
-    console.log(this.tarefa);
+    if(this.tarefaForm.dirty && this.tarefaForm.valid) {
+      this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
+      console.log(this.tarefa);
+      this.formResult = JSON.stringify(this.tarefaForm.value);
+    } else {
+      this.tarefaForm = "Não submeteu, formulário inválido.";
+    }
   }
 
   guardaTarefa(){
