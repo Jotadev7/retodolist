@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-tarefa',
@@ -11,6 +13,8 @@ import { TarefaService } from '../services/tarefa.service';
 })
 
 export class TarefaComponent implements OnInit {
+
+  private unsubscriber = new Subject();
 
   tarefaForm: FormGroup | any;
   tarefa: Tarefa | any;
@@ -51,14 +55,28 @@ export class TarefaComponent implements OnInit {
   adicionaTarefa() {
     if(this.tarefaForm.dirty && this.tarefaForm.valid) {
       this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
-      console.log(this.tarefa);
-      this.formResult = JSON.stringify(this.tarefaForm.value);
+      // console.log(this.tarefa);
+      // this.formResult = JSON.stringify(this.tarefaForm.value);
     } else {
       this.formResult = "Não submeteu, formulário inválido.";
     }
   }
 
+  carregarTarefas() {
+    this._tarefaService.getTarefas()
+      .pipe(takeUntil(this.unsubscriber))
+      .subscribe((tarefas: Tarefa[]) => {
+        this.tarefas = tarefas;
+    })
+  }
+
   guardaTarefa(){
-    this._tarefaService.adicionarTarefa(this.tarefa);
+    this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
+    console.log(this.tarefa);
+    this._tarefaService.adicionarTarefa(this.tarefa).subscribe(
+      () => {
+        this.carregarTarefas();
+      }
+    );
   }
 }
