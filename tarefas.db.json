@@ -1,38 +1,6 @@
 {
   "tarefas": [
     {
-      "id": 1,
-      "titulo": "Teste tarefa2",
-      "descricao": "Descrição da tarefa2",
-      "finalizado": true,
-      "categoria": "Fácil",
-      "dataConclusao": "22-04-2021"
-    },
-    {
-      "id": 2,
-      "titulo": "Teste tarefa",
-      "descricao": "Descrição da tarefa",
-      "finalizado": false,
-      "categoria": "Difícil",
-      "dataConclusao": "22-04-2021"
-    },
-    {
-      "id": 3,
-      "titulo": "Teste tarefa1",
-      "descricao": "Descrição da tarefa1",
-      "finalizado": true,
-      "categoria": "Difícil",
-      "dataConclusao": "22-04-2021"
-    },
-    {
-      "id": 4,
-      "titulo": "Correr",
-      "descricao": "Levar o cachorro para passear ao final da tarde.",
-      "finalizado": true,
-      "categoria": "Fácil",
-      "dataConclusao": "22-04-2021"
-    },
-    {
       "id": 5,
       "titulo": "123",
       "descricao": "asd",
@@ -42,19 +10,35 @@
     },
     {
       "id": 6,
-      "titulo": "123",
-      "descricao": "asdasdasd",
+      "titulo": "asd",
+      "descricao": "123",
       "finalizado": true,
-      "categoria": "Dificil",
-      "dataConclusao": "2022-02-10T12:40"
+      "categoria": "Facil",
+      "dataConclusao": "2022-02-14T13:35"
     },
     {
       "id": 7,
-      "titulo": "123123123",
-      "descricao": "qertertret",
+      "titulo": "asd",
+      "descricao": "123",
       "finalizado": true,
       "categoria": "Facil",
-      "dataConclusao": "2022-02-10T12:40"
+      "dataConclusao": "2022-02-14T13:35"
+    },
+    {
+      "id": 8,
+      "titulo": "asd",
+      "descricao": "123",
+      "finalizado": true,
+      "categoria": "Facil",
+      "dataConclusao": "2022-02-14T13:35"
+    },
+    {
+      "id": 9,
+      "titulo": "asd",
+      "descricao": "123",
+      "finalizado": true,
+      "categoria": "Urgente",
+      "dataConclusao": "2022-02-14T13:35"
     }
   ]
 }

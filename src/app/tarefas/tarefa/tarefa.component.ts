@@ -5,6 +5,7 @@ import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-tarefa',
@@ -19,10 +20,12 @@ export class TarefaComponent implements OnInit {
   tarefaForm: FormGroup | any;
   tarefa: Tarefa | any;
   formResult: string = '';
+  public tarefas: Tarefa[] = [];
 
   constructor(private _tarefaService: TarefaService,
-              private fb: FormBuilder) {}
-  public tarefas: Tarefa[] = [];
+              private fb: FormBuilder,
+              private toastr: ToastrService) {}
+              
 
   ngOnInit() {
     this.tarefaForm = this.fb.group({
@@ -65,6 +68,7 @@ export class TarefaComponent implements OnInit {
     this._tarefaService.adicionarTarefa(this.tarefa).subscribe(
       () => {
         this.carregarTarefas();
+        this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
       }
     );
   }
@@ -73,6 +77,7 @@ export class TarefaComponent implements OnInit {
     this._tarefaService.deletarTarefa(id).subscribe(
       (tarefa: any) => {
         console.log(tarefa);
+        this.toastr.success('Tarefa excluída com sucesso!', 'Sucesso!', {positionClass: 'toast-top-center', timeOut: 5000});
         this.carregarTarefas();
       }
     )
