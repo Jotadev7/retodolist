@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Tarefa } from '../models/tarefa';
@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./tarefa.component.css']
 })
 
-export class TarefaComponent implements OnInit {
+export class TarefaComponent implements OnInit, OnDestroy {
 
   private unsubscriber = new Subject();
 
@@ -37,22 +37,12 @@ export class TarefaComponent implements OnInit {
       dataConclusao: [Date, Validators.required],
     })
 
-    this._tarefaService.getTarefas()
-      .subscribe(
-        retorno => {
-          this.tarefas = retorno.map(item => 
-            {
-            return new Tarefa(
-              item.id,
-              item.titulo,
-              item.descricao,
-              item.finalizado,
-              item.categoria,
-              item.dataConclusao
-            )
-          })
-        }
-      )
+    this.carregarTarefas();
+  }
+
+  ngOnDestroy(): void {
+      this.unsubscriber.next();
+      this.unsubscriber.complete();
   }
 
   carregarTarefas() {
