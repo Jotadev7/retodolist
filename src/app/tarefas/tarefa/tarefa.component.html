@@ -96,11 +96,11 @@
             <button class="text-white btn btn-sm btn-secondary">Selecionar</button>
           </td>
           <td>{{tarefa.id}}</td>
-          <td>{{tarefa.titulo}}</td>
+          <td>{{tarefa.titulo | titlecase}}</td>
           <td>{{tarefa.descricao}}</td>
           <td>{{tarefa.finalizado}}</td>
           <td>{{tarefa.categoria}}</td>
-          <td>{{tarefa.dataConclusao}}</td>
+          <td>{{tarefa.dataConclusao | date: 'dd/MM/yyy, hh:mm'}}</td>
           <td>
             <div class="btn-group">
               <button class="btn btn-sm btn-danger" (click)="removeTarefa(tarefa.id)">Excluir</button>
