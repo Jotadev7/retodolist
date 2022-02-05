@@ -4,49 +4,34 @@
 
   <form novalidate [formGroup]="tarefaForm">
 
+    <!--Primeira linha-->
     <div class="form-row">
 
-      <div class="form-group">
-        <label class="col-md-2 control-label" for="titulo">Título</label>
-        <div class="col-md-10">
-          <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo">
-          <span class="text-danger" *ngIf="tarefaForm.get('titulo').errors && (tarefaForm.get('titulo').dirty || tarefaForm.get('titulo').touched)">
-            <p>Preencha o campo título</p>
+      <div class="form-group col-md-6">
+        <label for="titulo">Título</label>  
+        <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo">
+        <span class="text-danger" *ngIf="tarefaForm.get('titulo').errors && (tarefaForm.get('titulo').dirty || tarefaForm.get('titulo').touched)">
+          <p>Preencha o campo título</p>
         </span>
-        </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-md-2 control-label">Descrição</label>
-        <div class="col-md-10">
+      <div class="form-group col-md-6">
+        <label for="descricao">Descrição</label>
           <input class="form-control" id="descricao" type="text" placeholder="Descrição (requerido)"
             formControlName="descricao">
           <span class="text-danger" *ngIf="tarefaForm.get('descricao').errors && (tarefaForm.get('descricao').dirty || tarefaForm.get('descricao').touched)">
             <p>Preencha o campo descrição</p>
           </span>
-        </div>
       </div>
+    </div>
+    <!--Fim primeira linha-->
 
-      <div class="form-group">
-        <label class="col-md-2 control-label">Data de conclusão</label>
-        <div class="col-md-10">
-          <input class="form-control" type="datetime-local" formControlName="dataConclusao">
-          <span class="text-danger" *ngIf="tarefaForm.get('dataConclusao').errors && (tarefaForm.get('dataConclusao').dirty || tarefaForm.get('dataConclusao').touched)">
-            <p>Preencha o campo data de conclusão</p>
-          </span>
-        </div>
-      </div>
+    <!--Segunda linha-->
+    <div class="form-row">
 
-      <div class="form-group">
-        <label class="col-md-2 control-label">Tarefa concluída?</label>
-        <input class="form-check-input" type="checkbox" formControlName="finalizado">
-        <label class="form-check-label" for="flexCheckChecked">Concluída</label>
-      </div>
-
-      <div class="form-group">
-        <label class="col-md-2 control-label">Selecione a categoria</label>
-        <select class="form-select" aria-label="Categoria" formControlName="categoria">
-          <option selected>Selecionar</option>
+      <div class="form-group col-md-6">
+        <label>Categoria</label><br>
+        <select class="custom-select" formControlName="categoria">
           <option value="Facil">Fácil</option>
           <option value="Dificil">Difícil</option>
           <option value="Urgente">Urgente</option>
@@ -57,23 +42,37 @@
         </span>
       </div>
 
-      <div class="form-group">
-        <div class="col-md-4 col-md-offset-2">
-          <span><button class="btn btn-success" id="Registrar" type="submit" (click)="guardaTarefa()" [disabled]="!tarefaForm.valid">Registrar</button></span>&nbsp;
-          <span><button class="btn btn-primary" id="Limpar" type="reset">Limpar</button></span>
-        </div>
+      <div class="form-group col-md-6">
+        <label>Data de conclusão</label>
+        <input class="form-control" type="datetime-local" formControlName="dataConclusao">
+        <span class="text-danger" *ngIf="tarefaForm.get('dataConclusao').errors && (tarefaForm.get('dataConclusao').dirty || tarefaForm.get('dataConclusao').touched)">
+          <p>Preencha o campo data de conclusão</p>
+        </span>
       </div>
 
-      <div class="form-group">
-        <div class="col-md-4 col-md-offset-2">
-            <p>Formulário válido: {{tarefaForm.valid}}</p>
-            <p>Formulário tocado: {{tarefaForm.touched}}</p>
-            <p>Formulário sujo: {{tarefaForm.dirty}}</p><br>
-            <p>Formulário: {{formResult}}</p>
-        </div>
     </div>
+    <!--Fim da segunda linha-->
 
-    </div>
+      <div class="form-group">
+        <label>Tarefa concluída?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" formControlName="finalizado">
+          <label class="form-check-label" for="flexCheckChecked">Concluída</label>
+        </div>
+      </div><hr>
+
+      <div class="form-group" style="text-align: center;">
+          <button class="btn btn-success" id="Registrar" type="submit" (click)="guardaTarefa()" [disabled]="!tarefaForm.valid">Registrar</button>&nbsp;
+          <button class="btn btn-primary" id="Limpar" type="reset">Limpar</button>
+      </div><hr>
+
+      <div class="form-group">
+        <p>Formulário válido: {{tarefaForm.valid}}</p>
+        <p>Formulário tocado: {{tarefaForm.touched}}</p>
+        <p>Formulário sujo: {{tarefaForm.dirty}}</p><br>
+        <p>Formulário: {{formResult}}</p>
+      </div>
+
   </form>
 
   <div class="table-responsive">
