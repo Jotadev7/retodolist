@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Tarefa } from '../models/tarefa';
 import { TarefaService } from '../services/tarefa.service';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -28,6 +28,11 @@ export class TarefaComponent implements OnInit, OnDestroy {
               
 
   ngOnInit() {
+    this.criarForm();
+    this.carregarTarefas();
+  }
+
+  criarForm() {
     this.tarefaForm = this.fb.group({
       id: [0],
       titulo: ['', Validators.required],
@@ -36,8 +41,6 @@ export class TarefaComponent implements OnInit, OnDestroy {
       categoria: ['', Validators.required],
       dataConclusao: [Date, Validators.required],
     })
-
-    this.carregarTarefas();
   }
 
   ngOnDestroy(): void {
@@ -59,8 +62,25 @@ export class TarefaComponent implements OnInit, OnDestroy {
       () => {
         this.carregarTarefas();
         this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
+        this.criarForm();
       }
     );
+  }
+
+  update(taref : FormData){
+    
+  }
+
+  atualizarTarefa() {
+    const { data } = this.tarefaForm.getRawValue()
+    this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
+    console.log();
+    this._tarefaService.alterarTarefa(this.tarefa).subscribe(
+      sucesso => {
+        this.carregarTarefas();
+        this.toastr.success('Tarefa atualizada!');
+      }
+    )
   }
 
   removeTarefa(id: number) {

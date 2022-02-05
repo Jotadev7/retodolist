@@ -44,7 +44,7 @@
 
       <div class="form-group col-md-6">
         <label>Data de conclusão</label>
-        <input class="form-control" type="datetime-local" formControlName="dataConclusao">
+        <input class="form-control" id="data" type="datetime-local" formControlName="dataConclusao">
         <span class="text-danger" *ngIf="tarefaForm.get('dataConclusao').errors && (tarefaForm.get('dataConclusao').dirty || tarefaForm.get('dataConclusao').touched)">
           <p>Preencha o campo data de conclusão</p>
         </span>
@@ -92,7 +92,7 @@
       <tbody>
         <tr *ngFor="let tarefa of tarefas">
           <td>
-            <button class="text-white btn btn-sm btn-secondary">Selecionar</button>
+            <button class="text-white btn btn-sm btn-secondary" (click)="atualizarTarefa()" >Editar</button>
           </td>
           <td>{{tarefa.id}}</td>
           <td>{{tarefa.titulo | titlecase}}</td>
