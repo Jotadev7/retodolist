@@ -16,7 +16,7 @@ export class TarefaComponent implements OnInit {
 
   tarefaForm: FormGroup | any;
   tarefa = {} as Tarefa;
-  tarefaSelecionada = {} as Tarefa;
+  tarefaSelecionada: Tarefa | any;
   acao = 'post';
   formResult: string = '';
   public tarefas: Tarefa[] = [];
@@ -60,6 +60,7 @@ export class TarefaComponent implements OnInit {
           this.carregarTarefas();
           this.toastr.success('Tarefa atualizada com sucesso!', 'Sucesso!', {positionClass: 'toast-top-right', timeOut: 5000});
           this.criarForm();
+          this.acao = 'post';
         })
       }
     }
@@ -113,10 +114,15 @@ export class TarefaComponent implements OnInit {
   }
 
   // Copia a tarefa para ser editada
-  atualizarTarefa(tarefa: Tarefa) {
+  atualizaTarefa(tarefa: Tarefa) {
     this.acao = 'put';
     this.tarefaSelecionada = tarefa;
     this.tarefaForm.patchValue(tarefa);
+  }
+
+
+  limpaTarefa(){
+    this.tarefaSelecionada = null;
   }
 
 }

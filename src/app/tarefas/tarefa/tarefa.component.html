@@ -92,7 +92,7 @@
       <tbody>
         <tr *ngFor="let tarefa of tarefas">
           <td>
-            <button class="text-white btn btn-sm btn-secondary" (click)="atualizarTarefa(tarefa)">Editar</button>
+            <button class="text-white btn btn-sm btn-secondary" (click)="atualizaTarefa(tarefa)">Editar</button>
           </td>
           <td>{{tarefa.id}}</td>
           <td>{{tarefa.titulo | titlecase}}</td>
