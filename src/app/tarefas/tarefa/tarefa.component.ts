@@ -83,8 +83,8 @@ export class TarefaComponent implements OnInit, OnDestroy {
     )
   }
 
-  removeTarefa(id: number) {
-    this._tarefaService.deletarTarefa(id).subscribe(
+  removeTarefa(tarefa: Tarefa) {
+    this._tarefaService.deletarTarefa(tarefa).subscribe(
       (tarefa: any) => {
         console.log(tarefa);
         this.toastr.success('Tarefa excluída com sucesso!', 'Sucesso!', {positionClass: 'toast-top-center', timeOut: 5000});
