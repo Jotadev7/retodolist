@@ -92,7 +92,7 @@
       <tbody>
         <tr *ngFor="let tarefa of tarefas">
           <td>
-            <button class="text-white btn btn-sm btn-secondary" (click)="atualizarTarefa()" >Editar</button>
+            <button class="text-white btn btn-sm btn-secondary" (click)="atualizarTarefa(tarefa)">Editar</button>
           </td>
           <td>{{tarefa.id}}</td>
           <td>{{tarefa.titulo | titlecase}}</td>
@@ -102,7 +102,7 @@
           <td>{{tarefa.dataConclusao | date: 'dd/MM/yyy, hh:mm'}}</td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-sm btn-danger" (click)="removeTarefa(tarefa.id)">Excluir</button>
+              <button class="btn btn-sm btn-danger" (click)="removeTarefa(tarefa)">Excluir</button>
             </div>
           </td>
         </tr>

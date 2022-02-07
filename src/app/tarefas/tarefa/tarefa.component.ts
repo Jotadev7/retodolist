@@ -16,6 +16,8 @@ export class TarefaComponent implements OnInit {
 
   tarefaForm: FormGroup | any;
   tarefa = {} as Tarefa;
+  tarefaSelecionada = {} as Tarefa;
+  acao = 'post';
   formResult: string = '';
   public tarefas: Tarefa[] = [];
 
@@ -42,19 +44,43 @@ export class TarefaComponent implements OnInit {
   }
 
   // Define se a tarefa será criada ou atualizada, com base no ID ser diferente de indefinido. (Chama os serviços de adicionar ou alterar)
+
   guardaTarefa() {
-    if(this.tarefa.id !== undefined) {
-      this._tarefaService.alterarTarefa(this.tarefa).subscribe(() => {
-        this.criarForm();
-        this.carregarTarefas();
-        this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
-      })
-    } else {
-      this._tarefaService.adicionarTarefa(this.tarefa).subscribe(() => {
-        this.criarForm();
-      })
+    if(this.tarefaForm.valid) {
+      if(this.acao === 'post') {
+        this.tarefa = { ...this.tarefaForm.value};
+        this._tarefaService.adicionarTarefa(this.tarefa).subscribe(() => {
+          this.carregarTarefas();
+          this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
+          this.criarForm();
+        })
+      } else {
+        this.tarefa = { id: this.tarefaSelecionada.id, ...this.tarefaForm.value};
+        this._tarefaService.alterarTarefa(this.tarefa).subscribe(() => {
+          this.carregarTarefas();
+          this.toastr.success('Tarefa atualizada com sucesso!', 'Sucesso!', {positionClass: 'toast-top-right', timeOut: 5000});
+          this.criarForm();
+        })
+      }
     }
   }
+
+  // guardaTarefa() {
+  //   if(this.tarefaSelecionada.id !== undefined) {
+  //     this._tarefaService.alterarTarefa(this.tarefaSelecionada).subscribe(() => {
+  //       this.criarForm();
+  //       this.carregarTarefas();
+  //       this.toastr.success('Tarefa atualizada com sucesso!', 'Sucesso!', {positionClass: 'toast-top-right', timeOut: 5000});
+  //     })
+  //   } else {
+  //     this.tarefaSelecionada = Object.assign({}, this.tarefaSelecionada, this.tarefaForm.value);
+  //     this._tarefaService.adicionarTarefa(this.tarefaSelecionada).subscribe(() => {
+  //       this.criarForm();
+  //       this.carregarTarefas();
+  //       this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
+  //     })
+  //   }
+  // }
 
   // Antigo método para salvar
   // guardaTarefa(){
@@ -88,7 +114,9 @@ export class TarefaComponent implements OnInit {
 
   // Copia a tarefa para ser editada
   atualizarTarefa(tarefa: Tarefa) {
-    this.tarefa = { ...tarefa };
+    this.acao = 'put';
+    this.tarefaSelecionada = tarefa;
+    this.tarefaForm.patchValue(tarefa);
   }
 
 }
