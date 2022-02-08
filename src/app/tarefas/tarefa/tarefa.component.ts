@@ -83,6 +83,7 @@ export class TarefaComponent implements OnInit {
   //   }
   // }
 
+  // Teste de método salvar
   // Antigo método para salvar
   // guardaTarefa(){
   //   this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
