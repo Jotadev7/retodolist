@@ -2,6 +2,12 @@
   <h4>To-Do List - A melhor maneira de fazer acontecer!</h4>
   <hr>
 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page" >Gerenciamento de tarefas</li>
+    </ol>
+  </nav>
+
   <form novalidate [formGroup]="tarefaForm">
 
     <!--Primeira linha-->
@@ -78,11 +84,47 @@
   </form>
 
   <!--Teste de exibição-->
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item active" aria-current="page" >Gerenciamento de tarefas</li>
-    </ol>
-  </nav>
+
+  <div class="card">
+    <h5 class="card-header">Lista de Tarefas</h5>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <td></td>
+            <td>#</td>
+            <td>Título</td>
+            <td>Descrição</td>
+            <td>Finalizado?</td>
+            <td>Categoria</td>
+            <td>Data de conclusão</td>
+            <td></td>
+          </thead>
+      
+          <tbody>
+            <tr *ngFor="let tarefa of tarefas">
+              <td>
+                <button class="text-white btn btn-sm btn-secondary" (click)="atualizaTarefa(tarefa)">Editar</button>
+              </td>
+              <td>{{tarefa.id}}</td>
+              <td>{{tarefa.titulo | titlecase}}</td>
+              <td>{{tarefa.descricao}}</td>
+              <td>{{tarefa.finalizado}}</td>
+              <td>{{tarefa.categoria}}</td>
+              <td>{{tarefa.dataConclusao | date: 'dd/MM/yyy, hh:mm'}}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-danger" (click)="removeTarefa(tarefa)">Excluir</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--Fim do teste-->
 
   <div class="table-responsive">
     <table class="table table-hover table-striped">
