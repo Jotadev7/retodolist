@@ -122,7 +122,8 @@ export class TarefaComponent implements OnInit {
 
 
   limpaTarefa(){
-    this.tarefaSelecionada = null;
+    this.tarefaSelecionada = undefined;
+    this.criarForm();
   }
 
 }
