@@ -100,7 +100,12 @@
               <td>{{tarefa.titulo | titlecase}}</td>
               <td>{{tarefa.descricao}}</td>
               <td><input type="checkbox" [checked]="tarefa.finalizado" disabled></td>
-              <td>{{tarefa.categoria}}</td>
+              <td [ngSwitch]="tarefa.categoria">
+                <p *ngIf="tarefa.categoria === 'Fácil'" style="color: green;">{{tarefa.categoria}}</p>
+                <p *ngIf="tarefa.categoria === 'Difícil'" style="color: rgb(201, 201, 37);">{{tarefa.categoria}}</p>
+                <p *ngIf="tarefa.categoria === 'Urgente'" style="color: red;">{{tarefa.categoria}}</p>
+                <p *ngIf="tarefa.categoria === 'Prioritária'" style="color: rgb(219, 10, 219);">{{tarefa.categoria}}</p>
+              </td>
               <td>{{tarefa.dataConclusao | date: 'dd/MM/yyy, hh:mm'}}</td>
               <td>
                 <div class="btn-group">

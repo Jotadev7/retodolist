@@ -66,36 +66,6 @@ export class TarefaComponent implements OnInit {
     }
   }
 
-  // guardaTarefa() {
-  //   if(this.tarefaSelecionada.id !== undefined) {
-  //     this._tarefaService.alterarTarefa(this.tarefaSelecionada).subscribe(() => {
-  //       this.criarForm();
-  //       this.carregarTarefas();
-  //       this.toastr.success('Tarefa atualizada com sucesso!', 'Sucesso!', {positionClass: 'toast-top-right', timeOut: 5000});
-  //     })
-  //   } else {
-  //     this.tarefaSelecionada = Object.assign({}, this.tarefaSelecionada, this.tarefaForm.value);
-  //     this._tarefaService.adicionarTarefa(this.tarefaSelecionada).subscribe(() => {
-  //       this.criarForm();
-  //       this.carregarTarefas();
-  //       this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
-  //     })
-  //   }
-  // }
-
-  // Teste de método salvar
-  // Antigo método para salvar
-  // guardaTarefa(){
-  //   this.tarefa = Object.assign({}, this.tarefa, this.tarefaForm.value);
-  //   this._tarefaService.adicionarTarefa(this.tarefa).subscribe(
-  //     () => {
-  //       this.carregarTarefas();
-  //       this.toastr.success('Tarefa salva com sucesso!', 'Sucesso!', {positionClass: 'toast-top-left', timeOut: 5000});
-  //       this.criarForm();
-  //     }
-  //   );
-  // }
-
   // Chama o serviço para carregar todas as tarefas
   carregarTarefas() {
     this._tarefaService.getTarefas()
@@ -121,9 +91,9 @@ export class TarefaComponent implements OnInit {
     this.tarefaForm.patchValue(tarefa);
   }
 
-
+  // Cancela a alteração de uma tarefa
   limpaTarefa(){
-    this.tarefaSelecionada = undefined;
+    this.tarefaSelecionada = null;
     this.criarForm();
   }
 

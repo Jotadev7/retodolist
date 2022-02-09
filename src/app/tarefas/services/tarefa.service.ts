@@ -8,7 +8,7 @@ import { catchError, retry } from "rxjs/operators";
     providedIn: 'root'
 })
 export class TarefaService {
-    private url = "http://localhost:3000/tarefas";
+    url = "http://localhost:3000/tarefas";
 
     // Injetando o HttpClient
     constructor(private _httpClient: HttpClient) { }

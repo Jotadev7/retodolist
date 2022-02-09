@@ -5,7 +5,7 @@
       "titulo": "asd",
       "descricao": "123",
       "finalizado": true,
-      "categoria": "Fácil",
+      "categoria": "Prioritária",
       "dataConclusao": "2022-02-14T13:35"
     },
     {
@@ -44,9 +44,25 @@
       "id": 12,
       "titulo": "a\\asdfzxvc",
       "descricao": "669699",
-      "finalizado": true,
+      "finalizado": false,
       "categoria": "Fácil",
       "dataConclusao": "2022-02-01T17:12"
+    },
+    {
+      "id": 13,
+      "titulo": "asd",
+      "descricao": "asd",
+      "finalizado": true,
+      "categoria": "Difícil",
+      "dataConclusao": "2022-02-02T13:05"
+    },
+    {
+      "id": 14,
+      "titulo": "Erisson",
+      "descricao": "Erisson",
+      "finalizado": true,
+      "categoria": "Urgente",
+      "dataConclusao": "2022-02-08T13:21"
     }
   ]
 }
