@@ -18,8 +18,15 @@ export class TarefaComponent implements OnInit {
   tarefa = {} as Tarefa;
   tarefaSelecionada: Tarefa | any;
   acao = 'post';
-  formResult: string = '';
   public tarefas: Tarefa[] = [];
+
+  // Ordenação
+  key: string = 'id';
+  reverse: boolean = false;
+  sort(key: any) {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
 
   constructor(private _tarefaService: TarefaService,
               private fb: FormBuilder,

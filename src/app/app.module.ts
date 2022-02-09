@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NavegacaoModule } from './navegacao/navegacao.module';
 import { TarefaService } from './tarefas/services/tarefa.service';
 import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    OrderModule,
     ToastrModule.forRoot()
   ],
   providers: [

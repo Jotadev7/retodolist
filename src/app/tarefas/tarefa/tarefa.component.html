@@ -82,17 +82,26 @@
         <table class="table table-hover table-striped">
           <thead style="text-align: center;">
             <td></td>
-            <td>#</td>
+            <td class="ordena" (click)="sort('id')">
+              ID
+              <span>{{reverse ? '▲' : '▼'}}</span>
+            </td>
             <td>Título</td>
             <td>Descrição</td>
             <td>Finalizado?</td>
-            <td>Categoria</td>
-            <td>Data de conclusão</td>
+            <td class="ordena" (click)="sort('categoria')">
+              Categoria
+              <span>{{reverse ? '▲' : '▼'}}</span>
+            </td>
+            <td class="ordena" (click)="sort('dataConclusao')">
+              Data de conclusão
+              <span>{{reverse ? '▲' : '▼'}}</span>
+            </td>
             <td></td>
           </thead>
       
           <tbody style="text-align: center;">
-            <tr *ngFor="let tarefa of tarefas">
+            <tr *ngFor="let tarefa of tarefas | orderBy: key : reverse;">
               <td>
                 <button class="text-white btn btn-sm btn-secondary" (click)="atualizaTarefa(tarefa)">Editar</button>
               </td>
