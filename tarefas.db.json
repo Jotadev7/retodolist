@@ -47,14 +47,6 @@
       "finalizado": true,
       "categoria": "Fácil",
       "dataConclusao": "2022-02-01T17:12"
-    },
-    {
-      "id": 15,
-      "titulo": "Willow",
-      "descricao": "teste",
-      "finalizado": true,
-      "categoria": "Urgente",
-      "dataConclusao": "2022-02-01T13:59"
     }
   ]
 }
