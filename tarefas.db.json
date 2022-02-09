@@ -31,6 +31,38 @@
       "finalizado": true,
       "categoria": "Difícil",
       "dataConclusao": "2022-02-17T16:15"
+    },
+    {
+      "id": 5,
+      "titulo": "CSS",
+      "descricao": "Estudar CSS.",
+      "finalizado": false,
+      "categoria": "Urgente",
+      "dataConclusao": "2022-02-18T09:15"
+    },
+    {
+      "id": 6,
+      "titulo": "Typescript",
+      "descricao": "Estudar typescript",
+      "finalizado": false,
+      "categoria": "Urgente",
+      "dataConclusao": "2022-02-19T12:14"
+    },
+    {
+      "id": 7,
+      "titulo": "Javascript",
+      "descricao": "Estudar funções do javascript.",
+      "finalizado": true,
+      "categoria": "Prioritária",
+      "dataConclusao": "2022-01-26T02:10"
+    },
+    {
+      "id": 8,
+      "titulo": "Projeto",
+      "descricao": "Entregar projeto de revisão - desafio.",
+      "finalizado": true,
+      "categoria": "Prioritária",
+      "dataConclusao": "2022-02-09T17:00"
     }
   ]
 }

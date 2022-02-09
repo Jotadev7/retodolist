@@ -20,7 +20,7 @@ export class TarefaComponent implements OnInit {
   acao = 'post';
   public tarefas: Tarefa[] = [];
 
-  // Ordenação
+  // Ordenação usando pacote ngx-order-pipe.
   key: string = 'id';
   reverse: boolean = false;
   sort(key: any) {
@@ -50,7 +50,7 @@ export class TarefaComponent implements OnInit {
     })
   }
 
-  // Define se a tarefa será criada ou atualizada, com base no ID ser diferente de indefinido. (Chama os serviços de adicionar ou alterar)
+  // Define se a tarefa será criada ou atualizada, com base na ação. (Chama os serviços de adicionar ou alterar)
 
   guardaTarefa() {
     if(this.tarefaForm.valid) {
@@ -98,7 +98,7 @@ export class TarefaComponent implements OnInit {
     this.tarefaForm.patchValue(tarefa);
   }
 
-  // Cancela a alteração de uma tarefa
+  // Limpa form da tarefa
   limpaTarefa(){
     this.tarefaSelecionada = null;
     this.criarForm();
