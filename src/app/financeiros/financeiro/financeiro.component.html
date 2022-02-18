@@ -1,0 +1,117 @@
+<div class="container main-container">
+  <h4>Natureza financeira!</h4>
+  <hr>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page" >Gerenciamento de financeiro</li>
+    </ol>
+  </nav>
+
+  <form novalidate [formGroup]="financeiroForm">
+
+    <!--Primeira linha-->
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <label for="nome">Nome</label>
+        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome">
+        <span class="text-danger" *ngIf="financeiroForm.get('nome').errors && (financeiroForm.get('nome').dirty || financeiroForm.get('nome').touched)">
+          <p>Preencha o campo nome</p>
+        </span>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="descricao">Descrição</label>
+          <input class="form-control" id="descricao" type="text" placeholder="Descrição (requerido)"
+            formControlName="descricao">
+          <span class="text-danger" *ngIf="financeiroForm.get('descricao').errors && (financeiroForm.get('descricao').dirty || financeiroForm.get('descricao').touched)">
+            <p>Preencha o campo descrição</p>
+          </span>
+      </div>
+    </div>
+    <!--Fim primeira linha-->
+
+    <!--Segunda linha-->
+    <div class="form-row">
+
+      <div class="form-group col-md-4">
+        <label>Tipo</label><br>
+        <select class="custom-select" formControlName="tipo">
+          <option value="Receita" selected>Receita</option>
+          <option value="Despesa">Despesa</option>
+        </select>
+        <span class="text-danger" *ngIf="financeiroForm.get('tipo').errors && (financeiroForm.get('tipo').dirty || financeiroForm.get('tipo').touched)">
+          <p>Selecione um dos tipos acima</p>
+        </span>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Empresa</label>
+        <input class="form-control" id="empresa" type="text" placeholder="Empresa (requerido)"
+            formControlName="empresa">
+        <span class="text-danger" *ngIf="financeiroForm.get('empresa').errors && (financeiroForm.get('empresa').dirty || financeiroForm.get('empresa').touched)">
+          <p>Preencha o campo empresa</p>
+        </span>
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>Ações:</label><br>
+        <button class="btn btn-success" id="Registrar" type="submit" (click)="guardaFinanceiro()" [disabled]="!financeiroForm.valid">Registrar</button>&nbsp;
+        <button class="btn btn-primary" id="Limpar" type="reset">Limpar</button>
+      </div>
+
+    </div><hr>
+    <!--Fim da segunda linha-->
+
+  </form>
+
+  <!--Exibição-->
+  <div class="card">
+    <h5 class="card-header">Lista de financeiros</h5>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead style="text-align: center;">
+            <td></td>
+            <td class="ordena" (click)="sort('id')">
+              ID
+              <span>{{reverse ? '▲' : '▼'}}</span>
+            </td>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td class="ordena" (click)="sort('tipo')">
+              Tipo
+              <span>{{reverse ? '▲' : '▼'}}</span>
+            </td>
+            <td>Empresa</td>
+            <td></td>
+          </thead>
+
+          <tbody style="text-align: center;">
+            <tr *ngFor="let financeiro of financeiros | orderBy: key : reverse;">
+              <td>
+                <button class="text-white btn btn-sm btn-secondary" (click)="atualizaFinanceiro(financeiro)">Editar</button>
+              </td>
+              <td>{{financeiro.id}}</td>
+              <td>{{financeiro.nome | titlecase}}</td>
+              <td>{{financeiro.descricao}}</td>
+              <td [ngSwitch]="financeiro.tipo">
+                <p *ngIf="financeiro.tipo === 'Receita'" style="color: green;">{{financeiro.tipo}}</p>
+                <p *ngIf="financeiro.tipo === 'Despesa'" style="color: red;">{{financeiro.tipo}}</p>
+              </td>
+              <td>{{financeiro.empresa}}</td>
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-sm btn-danger" (click)="removeFinanceiro(financeiro)">Excluir</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--Fim da exibição-->
+
+</div>
