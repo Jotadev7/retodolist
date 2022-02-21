@@ -13,11 +13,13 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { TarefaService } from './tarefas/services/tarefa.service';
 import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { FinanceiroComponent } from './financeiros/financeiro/financeiro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TarefaComponent
+    TarefaComponent,
+    FinanceiroComponent
   ],
   imports: [
     BrowserModule,

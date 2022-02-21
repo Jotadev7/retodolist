@@ -1,0 +1,39 @@
+{
+  "financeiros": [
+    {
+      "id": 1,
+      "nome": "Compras",
+      "descricao": "Comprar pão e ovos ao ir ao supermercado.",
+      "tipo": "Despesa",
+      "empresa": "Adapte"
+    },
+    {
+      "id": 2,
+      "nome": "Receber",
+      "descricao": "Receber pagamento clientes.",
+      "tipo": "Receita",
+      "empresa": "Adapte"
+    },
+    {
+      "id": 3,
+      "nome": "Energia",
+      "descricao": "Pagamento energia fevereiro.",
+      "tipo": "Despesa",
+      "empresa": "Liderança"
+    },
+    {
+      "id": 4,
+      "nome": "Água",
+      "descricao": "Pagamento conta de água janeiro.",
+      "tipo": "Despesa",
+      "empresa": "Liderança"
+    },
+    {
+      "id": 5,
+      "nome": "Energia",
+      "descricao": "Pagamento energia mês março",
+      "tipo": "Despesa",
+      "empresa": "Liderança"
+    }
+  ]
+}
