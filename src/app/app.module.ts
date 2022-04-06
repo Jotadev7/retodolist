@@ -14,12 +14,14 @@ import { TarefaService } from './tarefas/services/tarefa.service';
 import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { FinanceiroComponent } from './financeiros/financeiro/financeiro.component';
+import { ContadorComponent } from './contador/contador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TarefaComponent,
-    FinanceiroComponent
+    FinanceiroComponent,
+    ContadorComponent
   ],
   imports: [
     BrowserModule,

@@ -31,7 +31,7 @@ export class TarefaComponent implements OnInit {
   constructor(private _tarefaService: TarefaService,
               private fb: FormBuilder,
               private toastr: ToastrService) {}
-              
+
   // Ao iniciar, cria o formulário e carrega todas as tarefas.
   ngOnInit() {
     this.criarForm();

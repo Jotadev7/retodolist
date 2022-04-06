@@ -1,13 +1,6 @@
 {
   "financeiros": [
     {
-      "id": 1,
-      "nome": "Compras",
-      "descricao": "Comprar pão e ovos ao ir ao supermercado.",
-      "tipo": "Despesa",
-      "empresa": "Adapte"
-    },
-    {
       "id": 2,
       "nome": "Receber",
       "descricao": "Receber pagamento clientes.",

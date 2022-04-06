@@ -14,7 +14,7 @@
     <div class="form-row">
 
       <div class="form-group col-md-6">
-        <label for="titulo">Título</label>  
+        <label for="titulo">Título</label>
         <input class="form-control" id="titulo" type="text" placeholder="Título (requerido)" formControlName="titulo">
         <span class="text-danger" *ngIf="tarefaForm.get('titulo').errors && (tarefaForm.get('titulo').dirty || tarefaForm.get('titulo').touched)">
           <p>Preencha o campo título</p>
@@ -38,6 +38,7 @@
       <div class="form-group col-md-6">
         <label>Categoria</label><br>
         <select class="custom-select" formControlName="categoria">
+          <option selected value="">Selecione uma das opções</option>
           <option value="Fácil">Fácil</option>
           <option value="Difícil">Difícil</option>
           <option value="Urgente">Urgente</option>
@@ -62,7 +63,7 @@
       <div class="form-group">
         <label>Tarefa concluída?</label>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" formControlName="finalizado">
+          <input class="form-check-input" type="checkbox" value="" formControlName="finalizado">
           <label class="form-check-label" for="flexCheckChecked">Concluída</label>
         </div>
       </div><hr>
@@ -98,7 +99,7 @@
             </td>
             <td></td>
           </thead>
-      
+
           <tbody style="text-align: center;">
             <tr *ngFor="let tarefa of tarefas | orderBy: key : reverse;">
               <td>

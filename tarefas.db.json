@@ -63,6 +63,20 @@
       "finalizado": true,
       "categoria": "Prioritária",
       "dataConclusao": "2022-02-09T17:00"
+    },
+    {
+      "id": 9,
+      "titulo": "123",
+      "descricao": "asd",
+      "finalizado": true,
+      "categoria": "Fácil",
+      "dataConclusao": "2022-02-08T14:57"
+    },
+    {
+      "id": 10,
+      "titulo": "asdf",
+      "descricao": "asdasd",
+      "categoria": "Difícil"
     }
   ]
 }

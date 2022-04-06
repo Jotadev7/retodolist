@@ -4,12 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './navegacao/home/home.component';
 import { NotFoundComponent } from './navegacao/not-found/not-fount.component';
 import { TarefaComponent } from './tarefas/tarefa/tarefa.component';
+import { ContadorComponent } from './contador/contador.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'todo', component: TarefaComponent},
   {path: 'financeiro', component: FinanceiroComponent},
+  {path: 'contador', component: ContadorComponent},
   {path: 'nao-encontrado', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent}
 ];
